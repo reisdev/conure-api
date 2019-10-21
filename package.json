@@ -1,0 +1,43 @@
+{
+  "name": "conure-api",
+  "version": "0.0.1",
+  "description": "Content Management System API using Koa, GraphQL and Sequelzie",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/reisdev/conure-api.git"
+  },
+  "keywords": [
+    "api",
+    "graphql",
+    "sequelize",
+    "cms",
+    "koa"
+  ],
+  "author": "Matheus Reis <matheusdrdj@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/reisdev/conure-api/issues"
+  },
+  "homepage": "https://github.com/reisdev/conure-api#readme",
+  "dependencies": {
+    "joi": "^14.3.1",
+    "koa": "^2.10.0",
+    "koa-router": "^7.4.0",
+    "sequelize": "^5.21.1",
+    "winston": "^3.2.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.0.6",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-0": "^6.24.1",
+    "babel-watch": "^7.0.0",
+    "dotenv": "^8.2.0"
+  }
+}
