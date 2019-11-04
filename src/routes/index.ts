@@ -2,7 +2,7 @@ import Router from "koa-router";
 
 const router = new Router()
 
-router.get("/", async (ctx,next) => {
+router.get("/", async (ctx : any,next: Function) => {
     ctx.type = "application/json";
     ctx.body = {
         status: 200,

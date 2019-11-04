@@ -4,7 +4,7 @@ const Logger = require('./loaders/logger').default;
 
 const app = new App();
 
-app.on('error', err => {
+app.on('error', (err: Error) => {
   Logger.error(err);
 });
 
@@ -15,7 +15,7 @@ const server = app.listen(config.port, () => {
    `);
 });
 
-server.on('error', err => {
+server.on('error', (err: Error) => {
   Logger.error(err);
 });
 

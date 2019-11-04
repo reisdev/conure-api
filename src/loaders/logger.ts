@@ -11,10 +11,11 @@ var Logger = winston.createLogger({
   exitOnError: false,
 });
 
-Logger.stream = {
-  write: function (message) {
+const stream = {
+  write: function (message: String) {
     Logger.info(message.substring(0, message.lastIndexOf('\n')));
   }
 };
 
 export default Logger;
+export { stream }

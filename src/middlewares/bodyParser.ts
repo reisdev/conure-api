@@ -11,7 +11,7 @@ import koaBodyParser from 'koa-bodyparser';
  * @return {function} Convert request body to JSON type
  * @throws {InvalidMediaType} When the request format is invalid.
  */
-export function bodyParser(options = {}) {
+export function bodyParser(options: Object = {}) {
   return koaBodyParser({
     ...options,
     onerror: () => {
