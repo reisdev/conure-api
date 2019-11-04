@@ -1,6 +1,6 @@
-import config from '../config';
-import App from './app';
-import Logger from './loaders/logger';
+const config = require('../config');
+const App = require('./app').default;
+const Logger = require('./loaders/logger').default;
 
 const app = new App();
 
