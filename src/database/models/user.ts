@@ -9,6 +9,10 @@ export default (sequelize: Sequelize, types: any) => {
     },
     username: types.STRING,
     name: types.STRING,
+    createdAt: {
+      type: types.DATE,
+      allowNull: false
+    },
     password: {
       type: types.STRING,
       allowNull: false

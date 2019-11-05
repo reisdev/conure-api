@@ -1,4 +1,4 @@
-import { Sequelize } from "sequelize";
+import { Sequelize, DataTypes } from "sequelize";
 
 export default (sequelize: Sequelize, types: any) => {
   return sequelize.define("post", {
@@ -6,6 +6,10 @@ export default (sequelize: Sequelize, types: any) => {
       type: types.INTEGER.UNSIGNED,
       autoIncrement: true,
       primaryKey: true
+    },
+    createdAt: {
+      type: types.DATE,
+      allowNull: false
     },
     title: {
       type: types.STRING,

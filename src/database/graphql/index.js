@@ -1,4 +1,10 @@
-import { GraphQLSchema, GraphQLObjectType, GraphQLList } from "graphql";
+import {
+  GraphQLSchema,
+  GraphQLObjectType,
+  GraphQLString,
+  GraphQLInt,
+  GraphQLNonNull
+} from "graphql";
 import { resolver } from "graphql-sequelize";
 import types from "./typeDef";
 import models from "../";
@@ -8,11 +14,24 @@ const schema = new GraphQLSchema({
     name: "query",
     fields: {
       posts: {
-        type: new GraphQLList(types.Post),
+        args: {
+          id: {
+            type: new GraphQLNonNull(GraphQLInt)
+          }
+        },
+        type: types.Post,
         resolve: resolver(models.PostModel)
       },
       users: {
-        type: new GraphQLList(types.User),
+        args: {
+          id: {
+            type: GraphQLInt
+          },
+          name: {
+            type: GraphQLString
+          }
+        },
+        type: types.User,
         resolve: resolver(models.UserModel)
       }
     }
