@@ -7,8 +7,8 @@
 
 "use strict";
 
-const dotenv =require("dotenv");
-dotenv.config();
+const dotenv = require("dotenv");
+const config_file = dotenv.config({ path: "config/.env" }).parsed;
 
 /**
  * App node environment.
@@ -28,6 +28,13 @@ const app_config = {
     port: process.env.PORT || 3000,
     api: {
       prefix: "/v1"
+    },
+    database: {
+      name: config_file.DATABASE_NAME,
+      user: config_file.DATABASE_USER,
+      password: config_file.DATABASE_PASSWORD,
+      dialect: config_file.DATABASE_DIALECT,
+      host: config_file.DATABASE_HOST
     }
   },
   development: {
