@@ -5,7 +5,7 @@ import { GraphQLObjectType } from "graphql";
 const UserType = new GraphQLObjectType({
   name: "User",
   description: "Users Model",
-  fields: Object.assign(attributeFields(models.UserModel), {})
+  fields: Object.assign(attributeFields(models.Users))
 });
 
 export default UserType;

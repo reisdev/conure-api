@@ -1,7 +1,7 @@
 import { Sequelize } from "sequelize";
 
 export default (sequelize: Sequelize, types: any) => {
-  return sequelize.define("user", {
+  return sequelize.define("Users", {
     id: {
       type: types.INTEGER.UNSIGNED,
       autoIncrement: true,
@@ -13,9 +13,12 @@ export default (sequelize: Sequelize, types: any) => {
       type: types.DATE,
       allowNull: false
     },
+    updatedAt: {
+      type: types.DATE
+    },
     password: {
       type: types.STRING,
       allowNull: false
     }
-  });
+  }, { tableName: "users"});
 };

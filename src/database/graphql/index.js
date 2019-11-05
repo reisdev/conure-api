@@ -6,6 +6,7 @@ import {
   GraphQLNonNull
 } from "graphql";
 import { resolver } from "graphql-sequelize";
+import mutations from "./mutations"
 import types from "./typeDef";
 import models from "../";
 
@@ -16,11 +17,11 @@ const schema = new GraphQLSchema({
       posts: {
         args: {
           id: {
-            type: new GraphQLNonNull(GraphQLInt)
+            type: GraphQLInt
           }
         },
         type: types.Post,
-        resolve: resolver(models.PostModel)
+        resolve: resolver(models.Posts)
       },
       users: {
         args: {
@@ -32,8 +33,14 @@ const schema = new GraphQLSchema({
           }
         },
         type: types.User,
-        resolve: resolver(models.UserModel)
+        resolve: resolver(models.Users)
       }
+    }
+  }),
+  mutation: new GraphQLObjectType({
+    name: "Mutation",
+    fields: {
+      ...mutations
     }
   })
 });

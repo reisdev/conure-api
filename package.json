@@ -5,7 +5,11 @@
   "main": "index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon --watch ./src/**/* --exec ts-node ./src/server.js"
+    "start": "nodemon --watch src --exec ts-node ./src/server.js",
+    "predb:migrate": "sequelize db:migrate:undo:all --migrations-path=src/database/migrations",
+    "db:migrate": "sequelize db:migrate --migrations-path=src/database/migrations",
+    "predb:seed": "sequelize db:seed:undo:all --seeders-path=src/database/seeds",
+    "db:seed": "sequelize db:seed:all --seeders-path=src/database/seeds"
   },
   "repository": {
     "type": "git",
@@ -42,6 +46,7 @@
     "graphql": "^14.5.8",
     "graphql-relay": "^0.6.0",
     "graphql-sequelize": "^9.3.6",
+    "jsonwebtoken": "^8.5.1",
     "koa": "^2.11.0",
     "koa-bodyparser": "^4.2.1",
     "koa-cors": "0.0.16",
@@ -60,9 +65,9 @@
     "@babel/core": "^7.6.4",
     "@babel/node": "^7.6.3",
     "@babel/preset-env": "^7.6.3",
-    "babel-loader": "^8.0.6",
     "babel-polyfill": "^6.26.0",
     "babel-watch": "^7.0.0",
-    "dotenv": "^8.2.0"
+    "dotenv": "^8.2.0",
+    "sequelize-cli": "^5.5.1"
   }
 }

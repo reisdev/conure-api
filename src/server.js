@@ -11,16 +11,26 @@ app.on("error", err => {
 });
 
 const gqlServer = new ApolloServer({
-  schema: gqlSchema
+  schema: gqlSchema,
+  formatResponse(response) {
+    var body = response;
+    Object.keys(response.data).map(key => {
+      if (response.data[key] === null) {      
+        body = null;
+      }
+    });
+    return body;
+  }
 });
 
 gqlServer.applyMiddleware({ app, path: "/", graphiql: true });
 
 const server = app.listen(config.port, () => {
   Logger.info(`
+  
     Koa Server listening on port: ${config.port},
     in ${config.env} mode
-   `);
+  `);
 });
 
 server.on("error", err => {
