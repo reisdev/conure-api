@@ -1,5 +1,5 @@
 import { Sequelize, DataTypes } from "sequelize";
-import { Post } from "./models";
+import { Post, User } from "./models";
 import config from "../../config";
 
 const sequelize = new Sequelize(
@@ -13,7 +13,8 @@ const sequelize = new Sequelize(
 );
 
 const PostModel = Post(sequelize, DataTypes);
+const UserModel = User(sequelize, DataTypes);
 
 sequelize.sync({ force: true });
 
-export default { PostModel };
+export default { PostModel, UserModel };

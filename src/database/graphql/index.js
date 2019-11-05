@@ -9,9 +9,11 @@ const schema = new GraphQLSchema({
     fields: {
       posts: {
         type: new GraphQLList(types.Post),
-        resolve: ctx => {
-          console.log("erro");
-        }
+        resolve: resolver(models.PostModel)
+      },
+      users: {
+        type: new GraphQLList(types.User),
+        resolve: resolver(models.UserModel)
       }
     }
   })

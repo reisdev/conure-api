@@ -2,7 +2,7 @@ const config = require("../config");
 const App = require("./app").default;
 const Logger = require("./loaders/logger").default;
 const gqlSchema = require("./database/graphql").default;
-const ApolloServer = require("apollo-server-koa").ApolloServer;
+const { ApolloServer, gql } = require("apollo-server-koa");
 
 const app = new App();
 
@@ -11,10 +11,7 @@ app.on("error", err => {
 });
 
 const gqlServer = new ApolloServer({
-  schema: gqlSchema,
-  context: ({ ctx }) => {
-    console.log(ctx);
-  }
+  schema: gqlSchema
 });
 
 gqlServer.applyMiddleware({ app, path: "/", graphiql: true });
