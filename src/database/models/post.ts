@@ -1,18 +1,24 @@
-import { Sequelize } from "sequelize";
+import * as Sequelize from "sequelize";
 
-export default (sequelize: Sequelize, types: any) => {
-    return sequelize.define("Posts", {
+interface PostInterface extends Sequelize.Model {
+    id: Number,
+    title: String,
+    description: String,
+    authorId: Number,
+    createdAt: Date,
+    updatedAt: Date
+}
+
+type PostStatic = typeof Sequelize.Model & {
+    new(values?: object, options?: Sequelize.BuildOptions): PostInterface;
+}
+
+export default (sequelize: Sequelize.Sequelize, types: typeof Sequelize.DataTypes) => {
+    const model = <PostStatic>sequelize.define("Posts", {
         id: {
             type: types.INTEGER.UNSIGNED,
             autoIncrement: true,
             primaryKey: true
-        },
-        createdAt: {
-            type: types.DATE,
-            allowNull: false
-        },
-        updatedAt: {
-            type: types.DATE
         },
         title: {
             type: types.STRING,
@@ -20,6 +26,20 @@ export default (sequelize: Sequelize, types: any) => {
         },
         description: {
             type: types.STRING
+        },
+        authorId: {
+            type: types.INTEGER.UNSIGNED,
+            references: {
+                model: "users",
+                key: "id"
+            }
+        },
+        createdAt: {
+            type: types.DATE,
+            allowNull: false
+        },
+        updatedAt: {
+            type: types.DATE
         }
     }, {
         tableName: "posts"

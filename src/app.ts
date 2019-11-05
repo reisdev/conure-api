@@ -8,7 +8,7 @@ import { stream } from "./loaders";
 import router from "./routes";
 
 class App extends Koa {
-  constructor(params: any) {
+  constructor() {
     super();
     this.applyMiddlewares();
   }

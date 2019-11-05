@@ -12,7 +12,7 @@ const sequelize = new Sequelize(
   }
 );
 
-const PostModel = Post(sequelize, DataTypes);
 const UserModel = User(sequelize, DataTypes);
+const PostModel = Post(sequelize, DataTypes);
 
 export default sequelize.models;

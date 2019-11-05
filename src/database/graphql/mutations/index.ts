@@ -1,5 +1,9 @@
 import Post from "./post"
+import User from "./user"
 
-export default {
-    ...Post
-}
+var mutations = {};
+
+mutations = Object.assign(mutations, Post)
+mutations = Object.assign(mutations, User)
+
+export default mutations

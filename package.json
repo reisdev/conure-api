@@ -40,7 +40,6 @@
     "@types/koa-helmet": "^3.1.2",
     "@types/koa-morgan": "^1.0.4",
     "@types/koa-router": "^7.0.42",
-    "@types/sequelize": "^4.28.6",
     "@types/winston": "^2.4.4",
     "apollo-server-koa": "^2.9.7",
     "graphql": "^14.5.8",
@@ -56,6 +55,7 @@
     "mysql2": "^2.0.0",
     "nodemon": "^1.19.4",
     "sequelize": "^5.21.1",
+    "sequelize-typescript": "^1.0.0",
     "ts-node": "^8.4.1",
     "typescript": "^3.6.4",
     "winston": "^3.2.1"

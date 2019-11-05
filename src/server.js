@@ -12,15 +12,6 @@ app.on("error", err => {
 
 const gqlServer = new ApolloServer({
   schema: gqlSchema,
-  formatResponse(response) {
-    var body = response;
-    Object.keys(response.data).map(key => {
-      if (response.data[key] === null) {      
-        body = null;
-      }
-    });
-    return body;
-  }
 });
 
 gqlServer.applyMiddleware({ app, path: "/", graphiql: true });
