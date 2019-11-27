@@ -6,7 +6,7 @@ import {
   GraphQLNonNull
 } from "graphql";
 import { resolver } from "graphql-sequelize";
-import mutations from "./mutations"
+import mutations from "./mutations";
 import types from "./typeDef";
 import models from "../";
 
@@ -34,6 +34,15 @@ const schema = new GraphQLSchema({
         },
         type: types.User,
         resolve: resolver(models.Users)
+      },
+      categories: {
+        args: {
+          id: {
+            type: GraphQLInt
+          }
+        },
+        type: types.Category,
+        resolve: resolver(models.Categories)
       }
     }
   }),
