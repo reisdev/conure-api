@@ -2,8 +2,7 @@ import Koa from "koa";
 import cors from "koa-cors";
 import morgan from "koa-morgan";
 import helmet from "koa-helmet";
-import { ApolloServer } from "apollo-server-koa";
-import { bodyParser } from "./middlewares";
+import { bodyParser, Auth } from "./middlewares";
 import { stream } from "./loaders";
 import router from "./routes";
 
@@ -21,6 +20,7 @@ class App extends Koa {
         enableTypes: ["json"]
       })
     );
+    this.use(Auth);
     this.use(router.allowedMethods());
   }
 }
