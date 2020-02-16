@@ -3,7 +3,7 @@ import {
   GraphQLObjectType,
   GraphQLString,
   GraphQLInt,
-  GraphQLNonNull
+  GraphQLList
 } from "graphql";
 import { resolver } from "graphql-sequelize";
 import mutations from "./mutations";
@@ -20,7 +20,7 @@ const schema = new GraphQLSchema({
             type: GraphQLInt
           }
         },
-        type: types.Post,
+        type: new GraphQLList(types.Post),
         resolve: resolver(models.Posts)
       },
       users: {
@@ -32,7 +32,7 @@ const schema = new GraphQLSchema({
             type: GraphQLString
           }
         },
-        type: types.User,
+        type: new GraphQLList(types.User),
         resolve: resolver(models.Users)
       },
       categories: {
@@ -41,7 +41,7 @@ const schema = new GraphQLSchema({
             type: GraphQLInt
           }
         },
-        type: types.Category,
+        type: new GraphQLList(types.Category),
         resolve: resolver(models.Categories)
       }
     }

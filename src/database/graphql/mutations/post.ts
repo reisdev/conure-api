@@ -16,7 +16,7 @@ export default {
     type: types.Post,
     resolve: (
       root: any,
-      { title, description }: { title: String; description: String }
+      { title, description }: { title: string; description: string }
     ) => {
       return models.Posts.create({
         title,

@@ -1,5 +1,4 @@
 import * as Sequelize from "sequelize";
-import { type } from "os";
 
 export default (
   sequelize: Sequelize.Sequelize,
