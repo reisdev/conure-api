@@ -12,7 +12,7 @@ const sequelize = new Sequelize(
   }
 );
 
-const forceSync: boolean = true;
+const forceSync: boolean = false;
 
 const PostModel = Post(sequelize, DataTypes);
 const UserModel = User(sequelize, DataTypes);
