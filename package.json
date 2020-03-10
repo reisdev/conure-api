@@ -5,7 +5,8 @@
   "main": "index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon --watch ./src/**/* --exec ts-node ./src/server.js"
+    "dev": "nodemon --watch ./src/**/* --exec ts-node ./src/server.js",
+    "migrate": ""
   },
   "repository": {
     "type": "git",
