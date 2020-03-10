@@ -7,8 +7,9 @@ import {
 } from "graphql";
 import { resolver } from "graphql-sequelize";
 import mutations from "./mutations";
-import types from "./typeDef";
-import models from "../";
+import types, { User as UserType } from "./typeDef";
+import models from "..";
+import { User } from "../models";
 
 const schema = new GraphQLSchema({
   query: new GraphQLObjectType({
@@ -33,7 +34,12 @@ const schema = new GraphQLSchema({
           }
         },
         type: new GraphQLList(types.User),
-        resolve: resolver(models.Users)
+        resolve: resolver(models.Users, {
+          before: (findOptions, args, context) => {
+            findOptions.attributes.pop()
+            return findOptions
+          }
+        })
       },
       categories: {
         args: {

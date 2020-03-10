@@ -3,7 +3,7 @@ import jwt from "jsonwebtoken";
 import config from "../../config";
 
 export async function Auth(ctx: any, next: any) {
-  if (!ctx.headers["authorization"])
+  if (!ctx.headers["authorization"] && !ctx.request.url.startWith("/gql"))
     ctx.throw(401, "Missing Authorization token");
   else {
     if (ctx.headers["authorization"].startsWith("Bearer ")) {

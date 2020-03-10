@@ -5,7 +5,7 @@
   "main": "index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon --watch src --exec ts-node ./src/server.js",
+    "start": "nodemon --watch src --exec ts-node ./src/server.ts",
     "predb:migrate": "sequelize db:migrate:undo:all --migrations-path=src/database/migrations",
     "db:migrate": "sequelize db:migrate --migrations-path=src/database/migrations",
     "predb:seed": "sequelize db:seed:undo:all --seeders-path=src/database/seeds",

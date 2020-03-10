@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>conure-api</title>
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+        
+        <style>
+.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+</style>
+        <style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        
+        
+    </head>
+    <body class="vscode-light">
+        <h1 id="conure-api">conure-api</h1>
+<p>Content Management System API using Node+Typescript. Based on Koa, GraphQL and Sequelize.</p>
+<h2 id="endpoints">Endpoints</h2>
+<h3 id="gql"><code>/gql</code></h3>
+<p>GraphQL endpoint, that allows the following queries:</p>
+<h4 id="posts">posts</h4>
+<pre><code class="language-js"><div>{
+    posts {
+        id,title,createdAt,updatedAt
+    }
+}
+</div></code></pre>
+<h4 id="users">users</h4>
+<pre><code class="language-js"><div>{
+    users {
+        id,name,username,createdAt,updatedAt
+    }
+}
+</div></code></pre>
+
+    </body>
+    </html>

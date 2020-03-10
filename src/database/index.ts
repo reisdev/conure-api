@@ -12,8 +12,14 @@ const sequelize = new Sequelize(
   }
 );
 
+const forceSync: boolean = false;
+
 const UserModel = User(sequelize, DataTypes);
 const PostModel = Post(sequelize, DataTypes);
 const CategoryModel = Category(sequelize, DataTypes);
+
+if (forceSync) {
+  sequelize.sync({ force: true })
+}
 
 export default sequelize.models;

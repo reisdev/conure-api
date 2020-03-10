@@ -22,10 +22,36 @@ const env = process.env.NODE_ENV || "development";
  * @property {string} port - App port. Default is 3000.
  * @property {string} env - App env. Default is development.
  */
-const app_config = {
-  base: {
+
+interface Config {
+  "base": {
+    env: string;
+    port: string;
+    api: {
+      prefix: string;
+    }
+    "database": {
+      name: string | undefined;
+      user: string | undefined;
+      password: string | undefined;
+      dialect: string | undefined;
+      host: string | undefined;
+    },
+    jwt_secret: string | undefined
+  };
+  "development": {
+    port: string;
+  };
+  "test": {
+    port: string;
+  }
+}
+
+
+const app_config: Config = {
+  "base": {
     env,
-    port: process.env.PORT || 3000,
+    port: process.env.PORT || "3000",
     api: {
       prefix: "/v1"
     },
@@ -38,14 +64,14 @@ const app_config = {
     },
     jwt_secret: process.env.JWT_SECRET
   },
-  development: {
-    port: process.env.PORT || 8080
+  "development": {
+    port: process.env.PORT || "8080"
   },
-  test: {
-    port: process.env.PORT || 5000
+  "test": {
+    port: process.env.PORT || "5000"
   }
 };
 
 const config = Object.assign(app_config.base, app_config[env]);
 
-module.exports = config;
+export default config;

@@ -7,3 +7,9 @@ export default {
   User,
   Category
 };
+
+export {
+  Post,
+  User,
+  Category
+};

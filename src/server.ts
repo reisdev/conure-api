@@ -1,8 +1,8 @@
-const config = require("../config");
-const App = require("./app").default;
-const Logger = require("./loaders/logger").default;
-const gqlSchema = require("./database/graphql").default;
-const { ApolloServer, gql } = require("apollo-server-koa");
+import config from "../config"
+import App from "./app"
+import Logger from "./loaders/logger";
+import gqlSchema from "./database/graphql"
+import { ApolloServer, gql } from "apollo-server-koa";
 
 const app = new App();
 
@@ -14,7 +14,7 @@ const gqlServer = new ApolloServer({
   schema: gqlSchema,
 });
 
-gqlServer.applyMiddleware({ app, path: "/", graphiql: true });
+gqlServer.applyMiddleware({ app, path: "/gql" });
 
 const server = app.listen(config.port, () => {
   Logger.info(`
