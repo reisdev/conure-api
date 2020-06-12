@@ -30,7 +30,7 @@
   "homepage": "https://github.com/reisdev/conure-api#readme",
   "dependencies": {
     "@hapi/joi": "^16.1.7",
-    "apollo-server-koa": "^2.9.7",
+    "apollo-server-koa": "^2.14.2",
     "crypto": "^1.0.1",
     "graphql": "^14.5.8",
     "graphql-relay": "^0.6.0",
